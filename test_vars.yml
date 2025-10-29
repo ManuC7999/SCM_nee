@@ -9,3 +9,6 @@
     - name: Display the message
       ansible.builtin.debug:
         msg: "{{ custom_message | default(default_message) }}"
+    - name: Simulate long-runnnig task
+      ansible.builtin.pause:
+        seconds: 30
