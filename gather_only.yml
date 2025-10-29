@@ -1,0 +1,8 @@
+---
+- name: Simply gather facts
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Only gather, do nothing else
+      ansible.builtin.debug:
+        msg: "Facts gathered successfully."
