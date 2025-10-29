@@ -1,0 +1,11 @@
+# test_vars.yml
+---
+- name: Test variable override and limit
+  hosts: all
+  gather_facts: no
+  vars:
+    default_message: "Hello from the default playbook variable!"
+  tasks:
+    - name: Display the message
+      ansible.builtin.debug:
+        msg: "{{ custom_message | default(default_message) }}"
