@@ -1,0 +1,25 @@
+---
+# controller_trigger_rulebook.yml
+- name: Trigger a Controller Job Template
+  hosts: all
+  sources:
+    # A simple event source that generates an event every 30 seconds
+    - ansible.eda.range:
+        limit: 1
+        delay: 30
+
+  rules:
+    - name: Execute Job Template on range event
+      condition: event.range is defined
+      action:
+        # The action to execute the Job Template in Controller
+        run_job_template:
+          # This is the name of your existing Job Template
+          name: Demo Job Template 1
+          # Set the Controller host URL (e.g., https://controller.example.com)
+          controller_host: "https://<YOUR_CONTROLLER_URL>" 
+          # Use the name of the Credential created in Step 1
+          controller_token_credential: Rulebook Controller Token
+          # Optional: Pass Extra Vars to the Job Template
+          extra_vars:
+            source_of_execution: "EDA Rulebook"
