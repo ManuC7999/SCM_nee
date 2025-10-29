@@ -17,7 +17,7 @@
           # This is the name of your existing Job Template
           name: Demo Job Template 1
           # Set the Controller host URL (e.g., https://controller.example.com)
-          controller_host: "https://<YOUR_CONTROLLER_URL>" 
+          controller_host: "https://manuaap26-manc.apps.acm-ansible-ocp-04.cee.ral3.lab.eng.rdu2.redhat.com/execution/" 
           # Use the name of the Credential created in Step 1
           controller_token_credential: Rulebook Controller Token
           # Optional: Pass Extra Vars to the Job Template
